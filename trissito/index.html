@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="dt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body {
+            background-color: rgb(124, 121, 121);
+        }
+        
+        /* Container holding the image and elements */
+        .image-container {
+            position: relative;
+            width: 80vw;  /* Adjust as necessary */
+            height: auto;  /* Maintain aspect ratio */
+        }
+
+        /* The responsive image */
+        .image-container img {
+            display: block;
+            width: 100%;  /* Image takes the full width of the container */
+            height: auto; /* Maintain the image's aspect ratio */
+        }
+
+        /* Base style for rectangles */
+        .rectangle {
+            position: absolute;
+            background-color: rgba(101, 67, 33, 0); /* Initially fully transparent */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5vw; /* Font size proportional to viewport width */
+            transition: background-color 0.3s ease; /* Smooth transition */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+
+        /* Make the rectangle visible on hover */
+        .rectangle:hover {
+            background-color: rgba(101, 67, 33, 0.5); /* Dark brown with 50% transparency */
+        }
+
+        /* Each rectangle with all customizable options */
+        #rectangle1 {
+            top: 35%;  
+            left: 12.8%; 
+            width: 21.9%; /* Width for rectangle 1 */
+            height: 7%; /* Height for rectangle 1 */
+        }
+
+        #rectangle2 {
+            top: 44.8%;  
+            left: 12.8%; 
+            width: 21.9%; /* Width for rectangle 2 */
+            height: 7%; /* Height for rectangle 2 */
+        }
+
+        #rectangle3 {
+            top: 54.4%;  
+            left: 12.8%; 
+            width: 21.9%; /* Width for rectangle 3 */
+            height: 7%; /* Height for rectangle 3 */
+        }
+
+        #rectangle4 {
+            top: 64.2%;  
+            left: 12.8%; 
+            width: 21.9%; /* Width for rectangle 4 */
+            height: 7%; /* Height for rectangle 4 */
+        }
+
+        #rectangle01 {
+            top: 4%;  
+            left: 78.5%; 
+            width: 2.54%; /* Width for rectangle 4 */
+            height: 7%; /* Height for rectangle 4 */
+        }
+
+        #rectangle02 {
+            top: 4%;  
+            left: 81%; 
+            width: 2.8%; /* Width for rectangle 4 */
+            height: 7%; /* Height for rectangle 4 */
+        }
+
+        #rectangle03 {
+            top: 4%;  
+            left: 86.7%; 
+            width: 2.54%; /* Width for rectangle 4 */
+            height: 7%; /* Height for rectangle 4 */
+        }
+
+        #rectangle04 {
+            top: 4%;  
+            left: 89.5%; 
+            width: 3.2%; /* Width for rectangle 4 */
+            height: 7%; /* Height for rectangle 4 */
+        }
+
+        #rectangle05 {
+            top: 4%;  
+            left: 94.65%; 
+            width: 3.2%; /* Width for rectangle 4 */
+            height: 7%; /* Height for rectangle 4 */
+        }
+
+
+        .socmedia:hover {
+            background-color: rgba(187, 187, 187, 0.2); /* Dark brown with 50% transparency */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="RISTORANTE TRIS (6).png" alt="Background Image">
+        <div id="rectangle1" class="rectangle" onclick="loadPage('page1.html')">ÖFFNUNGSZEITEN</div>
+        <div id="rectangle2" class="rectangle" onclick="loadPage('page2.html')">RESERVIEREN</div>
+        <div id="rectangle3" class="rectangle" onclick="loadPage('page3.html')">SPEISEKARTEN</div>
+        <div id="rectangle4" class="rectangle" onclick="loadPage('page4.html')">GALERIE</div>
+        <a href="https://www.facebook.com/RistoranteTris/" target="_blank">
+            <div id="rectangle01" class="rectangle socmedia"></div>
+        </a>
+        <a href="https://www.instagram.com/ristorante.tris/" target="_blank">
+            <div id="rectangle02" class="rectangle socmedia"></div>
+        </a>
+        <a href="tel:+41 55 640 38 38"><div id="rectangle03" class="rectangle socmedia"></div></a>
+        <a href="mailto:trisnetstal@gmail.com"><div id="rectangle04" class="rectangle socmedia"></div></a>
+        <a href="https://maps.app.goo.gl/hD1XSJ461V14cjMaA" target="_blank">
+            <div id="rectangle05" class="rectangle socmedia"></div>
+        </a>
+        
+        
+        
+
+    </div>
+
+    <script>
+        function loadPage(page, newTab = false) {
+            if (newTab) {
+                window.open(page, '_blank');
+            } else {
+                window.location.href = page;
+            }
+        }
+
+    </script>
+</body>
+</html>

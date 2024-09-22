@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="dt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .gallery-item {
+            overflow: hidden; 
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer; 
+        }
+
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%; 
+            height: auto; 
+            display: block; 
+            transition: transform 0.3s ease; 
+        }
+
+        .gallery-item:hover img,
+        .gallery-item:hover video {
+            transform: scale(1.05); 
+        }
+
+        /* Lightbox styles */
+        .lightbox {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox img,
+        .lightbox video {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: rgb(0, 0, 0);
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* Back button styles */
+        .back-button {
+            position: absolute;
+            top: 36px;
+            left: 31px;
+            color: rgb(0, 0, 0);
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 1001; /* Ensure it's above the lightbox */
+        }
+    </style>
+</head>
+<body>
+    <h1>Restaurant</h1>
+    <div class="gallery">
+        <div class="gallery-item" onclick="openLightbox('galerie-restaurant/img1.JPEG')">
+            <img src="galerie-restaurant/img1.JPEG" alt="Image 1">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('galerie-restaurant/img2.JPEG')">
+            <img src="galerie-restaurant/img2.JPEG" alt="Image 2">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('galerie-restaurant/img3.JPEG')">
+            <img src="galerie-restaurant/img3.JPEG" alt="Image 3">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('galerie-restaurant/img4.JPEG')">
+            <img src="galerie-restaurant/img4.JPEG" alt="Image 4">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('galerie-restaurant/img5.JPEG')">
+            <img src="galerie-restaurant/img5.JPEG" alt="Image 5">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('galerie-restaurant/img6.JPEG')">
+            <img src="galerie-restaurant/img6.JPEG" alt="Image 6">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('galerie-restaurant/img7.JPEG')">
+            <img src="galerie-restaurant/img7.JPEG" alt="Image 7">
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Lightbox Image" style="display: none;">
+        <video id="lightbox-video" controls style="display: none;"></video>
+    </div>
+
+    <!-- Back Button -->
+    <div class="back-button" onclick="goToPage('page4.html')">&larr;</div>
+
+    <script>
+        function openLightbox(mediaSrc, isVideo = false) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxVideo = document.getElementById('lightbox-video');
+
+            if (isVideo) {
+                lightboxImg.style.display = 'none';
+                lightboxVideo.style.display = 'block';
+                lightboxVideo.src = mediaSrc; // Set the source of the lightbox video
+                lightboxVideo.play(); // Play the video
+            } else {
+                lightboxVideo.style.display = 'none';
+                lightboxImg.style.display = 'block';
+                lightboxImg.src = mediaSrc; // Set the source of the lightbox image
+            }
+
+            lightbox.style.display = 'flex'; // Show the lightbox
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxVideo = document.getElementById('lightbox-video');
+            lightbox.style.display = 'none'; // Hide the lightbox
+            lightboxVideo.pause(); // Pause the video when closing the lightbox
+            lightboxVideo.src = ''; // Reset the video source
+        }
+
+        function goToPage(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
